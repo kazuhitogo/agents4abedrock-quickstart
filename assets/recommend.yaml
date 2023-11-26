@@ -1,0 +1,67 @@
+openapi: 3.0.0
+info:
+  title: 'test API'
+  version: 1.0.0
+  description: "APIs for testing Agents' behavior"
+paths:
+  '/search':
+    get:
+      summary: 'amazon item search'
+      description: '入力されたテキストを使って amazon.co.jp で検索する API です。商品名、URL、商品の説明文をJSON形式の配列で返します。'
+      operationId: search
+      parameters:
+        -
+          name: KeyWord
+          in: path
+          description: '検索キーワード'
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: '検索成功'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: 'amazon.co.jp での商品名'
+                    url:
+                      type: string
+                      description: 'amazon.co.jp での URL'
+                    description:
+                      type: string
+                      description: 'amazon.co.jp での商品の説明文'
+  '/submit':
+    post:
+      summary: 'amazon item purchase'
+      description: '指定した URL の商品を購入します。購入が成功したかと配送日を返却します。'
+      operationId: search
+      parameters:
+        -
+          name: URL
+          in: path
+          description: 'URL'
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: '購入成功可否と配送日のお知らせ'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    is_submitted:
+                      type: boolean
+                      description: '購入に成功したか'
+                    delivery_date:
+                      type: string
+                      description: '配送日'
