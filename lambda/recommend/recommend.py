@@ -83,7 +83,7 @@ def lambda_handler(event, context):
         body = search(search_keyword)
 
     elif api_path == "/submit":
-        url = search_keyword = urllib.parse.quote(event["parameters"][0]["value"])
+        url = urllib.parse.quote(event["parameters"][0]["value"])
         body = submit(url)
 
     response_body = {"application/json": {"body": json.dumps(body, ensure_ascii=False)}}
