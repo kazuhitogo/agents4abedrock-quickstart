@@ -37,7 +37,7 @@ def search(search_keyword):
     )[:max_items]:
         item_dict = {
             "name": str(element_tag.contents[0].contents[0]),
-            "url": f'{base_url}{element_tag.attrs["href"]}',
+            "url": f'{base_url}/dp/{element_tag.attrs["href"].split("/dp/")[1]}',
         }
         soup = request_with_retry(item_dict["url"])
         _description = ""
