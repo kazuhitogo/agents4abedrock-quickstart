@@ -7,7 +7,7 @@ paths:
   '/search':
     get:
       summary: 'amazon item search'
-      description: '入力されたテキストを使って amazon.co.jp で検索する API です。商品名、URL、商品の説明文をJSON形式の配列で返します。'
+      description: 'この関数を呼び出す前に user::askuser を実行し、「こんにちは」といった挨拶や「プレゼントを提案して」といった直接的な指示から始まる会話を通して、あなたが私とのフランクな会話を行った中から私が何を欲しているのかを理解し、amazon.co.jp で検索する良いキーワードを事前に推測しておきます。そのキーワードを入力に amazon.co.jp で検索する API です。商品名、URL、商品の説明文をJSON形式の配列で返します。'
       operationId: search
       parameters:
         -
